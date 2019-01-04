@@ -6,7 +6,7 @@
 
 import json
 import os
-import urlparse
+from urllib.parse import urlparse
 
 from wptserve.handlers import json_handler
 
@@ -31,7 +31,7 @@ def handle_rest_api(request, response):
     def do_filter(entry):
         result = True
 
-        for option, values in query_options.iteritems():
+        for option, values in query_options.items():
             # Don't handle options which are not properties of the entry
             if option not in entry:
                 continue

@@ -12,7 +12,7 @@ import re
 import sys
 import urllib
 from datetime import datetime
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 import mozinfo
 import progressbar as pb
@@ -195,7 +195,7 @@ class Scraper(object):
     @property
     def url(self):
         """Return the URL of the build."""
-        return urllib.quote(urljoin(self.path, self.binary),
+        return urllib.parse.quote(urljoin(self.path, self.binary),
                             safe='%/:=&?~#+!$,;\'@()*[]|')
 
     @property

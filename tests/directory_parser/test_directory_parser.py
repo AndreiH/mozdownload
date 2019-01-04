@@ -48,7 +48,7 @@ class DirectoryParserTest(mhttpd.MozHttpdBaseTest):
         parser.entries = parser.filter(r'^\d+$')
 
         # Get only the subdirectories of the folder
-        dirs = os.walk(folder_path).next()[1]
+        dirs = os.walk(folder_path).__next__()[1]
         dirs.sort()
         self.assertEqual(parser.entries, dirs)
 

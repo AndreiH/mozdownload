@@ -6,7 +6,7 @@
 
 """Test all scraper classes for Firefox against the remote server"""
 
-import urllib
+import urllib.parse
 
 import pytest
 
@@ -42,7 +42,7 @@ def test_release_scraper(tmpdir, args, url):
     scraper = mozdownload.ReleaseScraper(destination=tmpdir, **args)
 
     if url:
-        assert urllib.unquote(scraper.url) == urljoin(BASE_URL, url)
+        assert urllib.parse.unquote(scraper.url) == urljoin(BASE_URL, url)
 
 
 @pytest.mark.parametrize("args,url", [
@@ -71,7 +71,7 @@ def test_candidate_scraper(tmpdir, args, url):
     """Test release candidate scraper against the remote server."""
     scraper = mozdownload.ReleaseCandidateScraper(destination=tmpdir, **args)
 
-    assert urllib.unquote(scraper.url) == urljoin(BASE_URL, url)
+    assert urllib.parse.unquote(scraper.url) == urljoin(BASE_URL, url)
 
 
 @pytest.mark.parametrize("args", [

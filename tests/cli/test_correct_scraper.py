@@ -47,7 +47,7 @@ class TestCLICorrectScraper(mhttpd.MozHttpdBaseTest):
 
     @patch('mozdownload.treeherder.Treeherder.query_builds_by_revision')
     def test_cli_scraper(self, query_builds_by_revision):
-        for scraper_type, data in tests.iteritems():
+        for scraper_type, data in tests.items():
             if data.get('builds'):
                 query_builds_by_revision.return_value = data['builds']
 

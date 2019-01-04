@@ -5,7 +5,7 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import os
-import urllib
+import urllib.parse
 
 from mock import patch
 
@@ -74,5 +74,5 @@ class TryScraperTest(mhttpd.MozHttpdBaseTest):
                                  **entry['args'])
             expected_filename = os.path.join(self.temp_dir, entry['filename'])
             self.assertEqual(scraper.filename, expected_filename)
-            self.assertEqual(urllib.unquote(scraper.url),
+            self.assertEqual(urllib.parse.unquote(scraper.url),
                              urljoin(self.wdir, entry['url']))

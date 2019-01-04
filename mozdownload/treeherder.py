@@ -73,7 +73,7 @@ class Treeherder(object):
 
             # Retrieve the option hash to filter for type of build (opt, and debug for now)
             option_hash = None
-            for key, values in self.client.get_option_collection_hash().iteritems():
+            for key, values in self.client.get_option_collection_hash().items():
                 for value in values:
                     if value['name'] == ('debug' if debug_build else 'opt'):
                         option_hash = key

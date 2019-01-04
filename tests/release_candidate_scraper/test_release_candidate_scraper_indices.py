@@ -6,7 +6,7 @@
 
 from mozdownload import ReleaseCandidateScraper
 
-import mozhttpd_base_test as mhttpd
+from tests.mozhttpd_base_test import MozHttpdBaseTest
 
 
 test_params = [
@@ -42,7 +42,7 @@ test_params = [
 ]
 
 
-class ReleaseCandidateScraperTest_build_indices(mhttpd.MozHttpdBaseTest):
+class ReleaseCandidateScraperTest_build_indices(MozHttpdBaseTest):
     """test indices in mozdownload scraper class"""
 
     def test_build_indices(self):
